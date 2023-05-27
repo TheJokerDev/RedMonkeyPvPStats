@@ -1,0 +1,7 @@
+name: SpigotTemplate
+version: '${version}'
+main: plugin.template.spigot.Main
+api-version: 1.19
+depend:
+  - PlaceholderAPI
+description: Template for Spigot plugins.

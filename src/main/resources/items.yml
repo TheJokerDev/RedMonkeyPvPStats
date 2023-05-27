@@ -1,0 +1,8 @@
+example:
+  material: compass
+  slot: 0
+  meta:
+    name: '&7Example Item'
+  actions:
+    multiclick:
+      - '[sound]ENTITY_PLAYER_LEVELUP,1.0,1.0'

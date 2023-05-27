@@ -1,0 +1,17 @@
+general:
+  noPermission: '{prefix}&cYou not have permissions to do this.'
+  onlyPlayers: '{prefix}&cThis command is only for players.'
+  onlyConsole: '{prefix}&cThis command can be only executed by console.'
+  commandNotExists: '{prefix}&cThat sub-command does''nt exist!'
+
+commands:
+  main:
+    needArguments: |-
+      {prefix}&cPlease, provide more arguments in the command.
+      &7TIP: Press space after command ant press Tab key to get the suggests.
+    getItem:
+      noItems: '{prefix}&cSorry, but no are registered items in config.'
+      itemNotExists: '{prefix}&cThat item not exists.'
+      success: '{prefix}&aYou''ve received &bx{amount} &e{item}&a.'
+    reload:
+      success: '{prefix}&aAll configuration files has been reloaded.'
