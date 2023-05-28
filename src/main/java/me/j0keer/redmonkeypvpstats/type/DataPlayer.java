@@ -80,6 +80,42 @@ public class DataPlayer {
         return deaths;
     }
 
+    public int getBlocksPlaced(String world){
+        return statisticHashMap.get(world).getBlocksPlaced();
+    }
+
+    public int getBlocksPlaced(){
+        int blocks = 0;
+        for (WorldStatistic worldStatistic : statisticHashMap.values()){
+            blocks += worldStatistic.getBlocksPlaced();
+        }
+        return blocks;
+    }
+
+    public int getBlocksBroken(String world){
+        return statisticHashMap.get(world).getBlocksBroken();
+    }
+
+    public int getBlocksBroken(){
+        int blocks = 0;
+        for (WorldStatistic worldStatistic : statisticHashMap.values()){
+            blocks += worldStatistic.getBlocksBroken();
+        }
+        return blocks;
+    }
+
+    public int getArrowHits(String world){
+        return statisticHashMap.get(world).getArrowHits();
+    }
+
+    public int getArrowHits(){
+        int hits = 0;
+        for (WorldStatistic worldStatistic : statisticHashMap.values()){
+            hits += worldStatistic.getArrowHits();
+        }
+        return hits;
+    }
+
     public double getKDR(String world){
         return statisticHashMap.get(world).getKDR();
     }

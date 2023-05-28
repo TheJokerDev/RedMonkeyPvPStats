@@ -72,6 +72,21 @@ public class ClearStatsCMD extends SubCMD {
             sendMSG(sender, "commands.main.clear-stats.success.killstreak");
             return true;
         }
+        if (var3.equalsIgnoreCase("blocksbroken")) {
+            ws.resetBlocksBroken();
+            sendMSG(sender, "commands.main.clear-stats.success.blocksbroken");
+            return true;
+        }
+        if (var3.equalsIgnoreCase("blocksplaced")) {
+            ws.resetBlocksPlaced();
+            sendMSG(sender, "commands.main.clear-stats.success.blocksplaced");
+            return true;
+        }
+        if (var3.equalsIgnoreCase("arrowhits")) {
+            ws.resetArrowHits();
+            sendMSG(sender, "commands.main.clear-stats.success.arrowhits");
+            return true;
+        }
         if (var3.equalsIgnoreCase("all")) {
             ws.reset();
             sendMSG(sender, "commands.main.clear-stats.success.all");
@@ -104,7 +119,7 @@ public class ClearStatsCMD extends SubCMD {
                     if (dp != null) {
                         WorldStatistic ws = dp.getStatisticHashMap().get(var2);
                         if (ws != null) {
-                            return StringUtil.copyPartialMatches(args[2], Arrays.asList("kills", "deaths", "killstreak", "all"), new ArrayList<>());
+                            return StringUtil.copyPartialMatches(args[2], Arrays.asList("kills", "deaths", "killstreak", "blocksbroken", "blocksplaced", "arrowhits", "all"), new ArrayList<>());
                         }
                     }
                 }

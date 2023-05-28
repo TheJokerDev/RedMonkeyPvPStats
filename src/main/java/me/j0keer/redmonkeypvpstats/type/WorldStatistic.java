@@ -11,6 +11,9 @@ public class WorldStatistic {
     private int deaths = 0;
     private int killstreak = 0;
     private int highestKillstreak = 0;
+    private int blocksBroken = 0;
+    private int blocksPlaced = 0;
+    private int arrowHits = 0;
 
     public WorldStatistic(Main plugin){
         this.plugin = plugin;
@@ -23,6 +26,11 @@ public class WorldStatistic {
         deaths = Integer.parseInt(stats[1]);
         killstreak = Integer.parseInt(stats[2]);
         highestKillstreak = Integer.parseInt(stats[3]);
+        if (stats.length > 4){
+            blocksBroken = Integer.parseInt(stats[4]);
+            blocksPlaced = Integer.parseInt(stats[5]);
+            arrowHits = Integer.parseInt(stats[6]);
+        }
     }
 
     public int addKill(){
@@ -40,11 +48,28 @@ public class WorldStatistic {
         return deaths;
     }
 
+    public int addBlockBroken(){
+        blocksBroken++;
+        return blocksBroken;
+    }
+
+    public int addBlockPlaced(){
+        blocksPlaced++;
+        return blocksPlaced;
+    }
+
+    public int addArrowHit(){
+        arrowHits++;
+        return arrowHits;
+    }
+
     public void reset(){
         kills = 0;
         deaths = 0;
         killstreak = 0;
         highestKillstreak = 0;
+        blocksBroken = 0;
+        blocksPlaced = 0;
     }
 
     public void resetKills(){
@@ -57,6 +82,22 @@ public class WorldStatistic {
 
     public void resetKillstreak(){
         killstreak = 0;
+    }
+
+    public void resetHighestKillstreak(){
+        highestKillstreak = 0;
+    }
+
+    public void resetBlocksBroken(){
+        blocksBroken = 0;
+    }
+
+    public void resetBlocksPlaced(){
+        blocksPlaced = 0;
+    }
+
+    public void resetArrowHits(){
+        arrowHits = 0;
     }
 
     public double getKDR(){
@@ -93,6 +134,6 @@ public class WorldStatistic {
     }
 
     public String serialize(){
-        return kills + "," + deaths + "," + killstreak + "," + highestKillstreak;
+        return kills + "," + deaths + "," + killstreak + "," + highestKillstreak + "," + blocksBroken + "," + blocksPlaced + "," + arrowHits;
     }
 }

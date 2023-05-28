@@ -85,6 +85,42 @@ public class PAPI extends PlaceholderExpansion {
                         }
                     }
                 }
+                case "blocksbroken" -> {
+                    String argument = args[1];
+                    if (argument.equals("total") || argument.equals("all") || argument.equals("global")){
+                        return String.valueOf(dataPlayer.getBlocksBroken());
+                    } else {
+                        if (dataPlayer.getStatisticHashMap().containsKey(argument)){
+                            return String.valueOf(dataPlayer.getBlocksBroken(argument));
+                        } else {
+                            return noData;
+                        }
+                    }
+                }
+                case "blocksplaced" -> {
+                    String argument = args[1];
+                    if (argument.equals("total") || argument.equals("all") || argument.equals("global")){
+                        return String.valueOf(dataPlayer.getBlocksPlaced());
+                    } else {
+                        if (dataPlayer.getStatisticHashMap().containsKey(argument)){
+                            return String.valueOf(dataPlayer.getBlocksPlaced(argument));
+                        } else {
+                            return noData;
+                        }
+                    }
+                }
+                case "arrowhits" -> {
+                    String argument = args[1];
+                    if (argument.equals("total") || argument.equals("all") || argument.equals("global")){
+                        return String.valueOf(dataPlayer.getArrowHits());
+                    } else {
+                        if (dataPlayer.getStatisticHashMap().containsKey(argument)){
+                            return String.valueOf(dataPlayer.getArrowHits(argument));
+                        } else {
+                            return noData;
+                        }
+                    }
+                }
                 case "bestkillstreak" -> {
                     String argument = args[1];
                     if (argument.equals("total") || argument.equals("all") || argument.equals("global")){

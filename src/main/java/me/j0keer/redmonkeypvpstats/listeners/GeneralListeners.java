@@ -2,10 +2,14 @@ package me.j0keer.redmonkeypvpstats.listeners;
 
 import me.j0keer.redmonkeypvpstats.Main;
 import me.j0keer.redmonkeypvpstats.type.DataPlayer;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.ProjectileHitEvent;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -40,6 +44,40 @@ public class GeneralListeners implements Listener {
         }
 
         executeRewards(p.getWorld().getName(), "death", deaths, p, killer);
+    }
+
+    @EventHandler
+    public void onBlockPlace(BlockPlaceEvent e){
+        Player p = e.getPlayer();
+        DataPlayer dp = plugin.getDataManager().getDataPlayer(p);
+
+        if (dp == null) return;
+
+        int blocks = dp.getWorldStatistic(p.getWorld().getName()).addBlockPlaced();
+        executeRewards(p.getWorld().getName(), "blocksplaced", blocks, p, null);
+    }
+
+    @EventHandler
+    public void onBlockBroken(BlockBreakEvent e){
+        Player p = e.getPlayer();
+        DataPlayer dp = plugin.getDataManager().getDataPlayer(p);
+
+        if (dp == null) return;
+
+        int blocks = dp.getWorldStatistic(p.getWorld().getName()).addBlockBroken();
+        executeRewards(p.getWorld().getName(), "blocksbroken", blocks, p, null);
+    }
+
+    @EventHandler
+    public void onProjectileHit(ProjectileHitEvent event){
+        if (event.getEntity() instanceof Arrow arrow && event.getHitEntity() != null && event.getHitEntity() instanceof Player victim){
+            if (arrow.getShooter() != null && arrow.getShooter() instanceof Player p){
+                DataPlayer dp = plugin.getDataManager().getDataPlayer(p);
+                if (dp == null) return;
+                int hits = dp.getWorldStatistic(p.getWorld().getName()).addArrowHit();
+                executeRewards(p.getWorld().getName(), "arrowhits", hits, victim, p);
+            }
+        }
     }
 
     public void executeRewards(String world, String type, int amount, Player p, @Nullable Player killer){

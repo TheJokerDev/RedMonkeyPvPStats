@@ -14,9 +14,12 @@ commands:
     reload:
       success: '{prefix}&aAll configuration files has been reloaded.'
     clear-stats:
-      needArguments: '{prefix}&cUsage: /stats clearstats <player> <world> <kill/death/killstreak/all>'
+      needArguments: '{prefix}&cUsage: /stats clearstats <player> <world> <kill/death/killstreak/blocksbroken/blocksplaced/arrowhits/all>'
       success:
         all: '{prefix}&aAll statistics has been cleared.'
         kill: '{prefix}&aAll kill statistics has been cleared.'
         death: '{prefix}&aAll death statistics has been cleared.'
+        blocksbroken: '{prefix}&aAll blocks broken statistics has been cleared.'
+        blocksplaced: '{prefix}&aAll blocks placed statistics has been cleared.'
+        arrowhits: '{prefix}&aAll arrow hits statistics has been cleared.'
         killstreak: '{prefix}&aAll streak statistics has been cleared.'
