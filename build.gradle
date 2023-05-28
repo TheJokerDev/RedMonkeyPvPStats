@@ -5,8 +5,8 @@ plugins {
     id("com.github.johnrengelman.shadow") version ("7.1.2")
 }
 
-group = 'plugin.template'
-version = '1.0'
+group = 'me.j0keer.redmonkeypvpstats'
+version = '1.0.1-BETA'
 
 repositories {
     mavenCentral()
@@ -32,8 +32,13 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
     //Libraries for dependencies
-    implementation("com.github.cryptomorin:XSeries:9.3.1")
     compileOnly 'me.clip:placeholderapi:2.11.3'
+
+    //Database libraries
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.23.1'
+    implementation('org.mariadb.jdbc:mariadb-java-client:3.0.4')
+    implementation('com.zaxxer:HikariCP:3.4.5')
+    implementation 'org.mongodb:mongo-java-driver:3.12.11'
 }
 
 def targetJavaVersion = 17
@@ -50,10 +55,6 @@ tasks.withType(JavaCompile).configureEach {
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         options.release = targetJavaVersion
     }
-}
-
-tasks.withType(ShadowJar){
-    relocate("com.cryptomorin.xseries", "plugin.template.spigot.xseries")
 }
 
 processResources {

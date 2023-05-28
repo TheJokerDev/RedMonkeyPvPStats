@@ -3,15 +3,20 @@ general:
   onlyPlayers: '{prefix}&cThis command is only for players.'
   onlyConsole: '{prefix}&cThis command can be only executed by console.'
   commandNotExists: '{prefix}&cThat sub-command does''nt exist!'
+  playerNotFound: '{prefix}&cPlayer not found!'
+  statisticNotFound: '{prefix}&cWorld not found!'
 
 commands:
   main:
     needArguments: |-
       {prefix}&cPlease, provide more arguments in the command.
-      &7TIP: Press space after command ant press Tab key to get the suggests.
-    getItem:
-      noItems: '{prefix}&cSorry, but no are registered items in config.'
-      itemNotExists: '{prefix}&cThat item not exists.'
-      success: '{prefix}&aYou''ve received &bx{amount} &e{item}&a.'
+      &7TIP: Press space after command and press Tab key to get the suggests.
     reload:
       success: '{prefix}&aAll configuration files has been reloaded.'
+    clear-stats:
+      needArguments: '{prefix}&cUsage: /stats clearstats <player> <world> <kill/death/killstreak/all>'
+      success:
+        all: '{prefix}&aAll statistics has been cleared.'
+        kill: '{prefix}&aAll kill statistics has been cleared.'
+        death: '{prefix}&aAll death statistics has been cleared.'
+        killstreak: '{prefix}&aAll streak statistics has been cleared.'

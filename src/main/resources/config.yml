@@ -1,3 +1,35 @@
 settings:
-  prefix: '&e&lSpigot&6&lTemplate &8» &7'
+  prefix: '&c&lPVP&e&lStats &8» &7'
   debug: false
+
+database:
+  type: yaml # mysql, mongodb, sqlite, yaml
+  mysql:
+    host: localhost:3306
+    database: pvpstats
+    user: root
+    password: 12345678
+  mongodb:
+    host: localhost:27017
+    database: pvpstats
+    user: root
+    password: 12345678
+    uri: 'mongodb://localhost:27017' #use this instead of host, user and password
+
+rewards:
+  example:
+    worlds:
+      - 'world'
+    execute:
+      kill:
+        '*':
+          - 'tell {victim} &cYou have been killed by {killer}!'
+          - 'tell {killer} &aYou have been rewarded for killing {victim}!'
+        '1':
+          - 'give {victim} diamond 1'
+      death:
+        '*':
+          - 'tell {player} &cYou died!'
+        '5':
+          - 'give {player} golden_apple 5'
+          - 'give {player} book 1'

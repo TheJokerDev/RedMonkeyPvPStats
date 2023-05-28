@@ -1,7 +1,7 @@
-name: SpigotTemplate
+name: RedMonkeyPvPStats
 version: '${version}'
-main: plugin.template.spigot.Main
+main: me.j0keer.redmonkeypvpstats.Main
 api-version: 1.19
 depend:
   - PlaceholderAPI
-description: Template for Spigot plugins.
+description: A statistics plugin with hook into PlaceholderAPI with per-world support.
