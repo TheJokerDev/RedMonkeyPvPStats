@@ -3,12 +3,15 @@ A simple plugin to show the stats of a player in a scoreboard.
 
 ## Commands
 - `/stats reload` - Reloads the config file.
-- `/stats clearstats <player> <world> <kill/death/killstreak/all>` - Shows the stats of a player.
+- `/stats clearstats <player> <world> <kill/death/killstreak/blocksbroken/blocksplaced/arrowhits/all>` - Shows the stats of a player.
 
 ## Placeholders
 > Statistics of a player in a world
 - `%redmonkey_kills_{world}%`
 - `%redmonkey_deaths_{world}%`
+- `%redmonkey_blocksbroken_{world}%`
+- `%redmonkey_blocksplaced_{world}%`
+- `%redmonkey_arrowhits_{world}%`
 - `%redmonkey_killstreak_{world}%`
 - `%redmonkey_bestkillstreak_{world}%`
 - `%redmonkey_kdr_{world}%`
@@ -16,6 +19,9 @@ A simple plugin to show the stats of a player in a scoreboard.
 > Global statistics of a player
 - `%redmonkey_kills_global%`
 - `%redmonkey_deaths_global%`
+- `%redmonkey_blocksbroken_global%`
+- `%redmonkey_blocksplaced_global%`
+- `%redmonkey_arrowhits_global%`
 - `%redmonkey_killstreak_global%`
 - `%redmonkey_bestkillstreak_global%`
 - `%redmonkey_kdr_global%`
